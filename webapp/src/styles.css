@@ -1,12 +1,71 @@
-table {
+.table {
     border-collapse: collapse;
 }
 
-table, th, td {
+.table, .th, .td {
     border: solid 1px;
 }
 
-th, td {
-    padding-left: 4px;
-    padding-right: 4px;
+.th, .td {
+    padding-left: 2px;
+    padding-right: 2px;
+}
+.tr:nth-child(even){background-color: #f2f2f2;}
+
+.tr:hover {background-color: #ddd;}
+
+.td{
+    text-align: right;
+    background-color: #ddd;
+    color: white;
+}
+
+input{
+    width: 100%;
+    padding: 8px 20px;
+    margin: 2px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.button {
+  background-color: #e7e7e7; color: black;
+  border: none;
+  color: white;
+  padding: 10px 24px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px;
+}
+
+.ant-tabs-nav{
+    position:absolute; top:102px; left:8px; width:200px; height:100%; background-color:#CCCCCC;
+}
+.ant-tabs{
+    border:2px 2px;
+}
+.ant-tabs-content-holder{
+    margin-left:210px; margin-top:5px; height:100%;
+}
+
+.ant-tabs-tab{
+    text-align: center;
+    border: 2px outset #CCCCCE;
+    background-color: #CCCCCD;
+    height: auto;
+    font-size: large;
+    border-radius: 8px;
+}
+
+.top{
+    position: relative;
+    background-color: #cccccf;
+    height: 68px;
+    padding-top: 20px;
+    line-height: 50px;
+    overflow: hidden;
 }

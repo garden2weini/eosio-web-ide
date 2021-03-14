@@ -5,7 +5,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Api, JsonRpc, RpcError } from 'eosjs';
 import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig';
-import {Tabs} from 'antd';
+import { Tabs } from 'antd';
 
 const { TabPane } = Tabs;
 
@@ -72,36 +72,39 @@ class CreateForm extends React.Component<{}, CreateFormState> {
 
     render() {
         return <div>
-            <table>
+            <table className='table'>
                 <tbody>
-                    <tr>
-                        <td>Private Key</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>Private Key</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.privateKey}
                             onChange={e => this.setState({ privateKey: e.target.value })}
                         /></td>
+                        <td className='td'>商户账号对应的私钥</td>
                     </tr>
-                    <tr>
-                        <td>Issuer</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>Issuer</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.issuer}
                             onChange={e => this.setData({ issuer: e.target.value })}
                         /></td>
+                        <td className='td'>创建积分的商户账号名</td>
                     </tr>
-                    <tr>
-                        <td>Maximum_supply</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>Maximum_supply</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.maximum_supply}
                             onChange={e => this.setData({ maximum_supply: e.target.value })}
                         /></td>
+                        <td className='td'>创建积分数量 积分名称</td>
                     </tr>
                 </tbody>
             </table>
             <br />
-            <button onClick={e => this.post()}>Create</button>
+            <button className='button' onClick={e => this.post()}>Create</button>
             {this.state.error && <div>
                 <br />
                 Error:
@@ -197,52 +200,57 @@ class IssueForm extends React.Component<{}, IssueFormState> {
 
     render() {
         return <div>
-            <table>
+            <table className='table'>
                 <tbody>
-                    <tr>
-                        <td>Private Key</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>Private Key</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.privateKey}
                             onChange={e => this.setState({ privateKey: e.target.value })}
                         /></td>
+                        <td className='td'>商户账户对应的私钥</td>
                     </tr>
-                     <tr>
-                        <td>From</td>
-                        <td><input
+                     <tr className='tr'>
+                        <td className='td'>From</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.from}
                             onChange={e => this.setData({ to: e.target.value })}
                         /></td>
+                        <td className='td'>商户账户名称</td>
                     </tr>
-                    <tr>
-                        <td>To</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>To</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.to}
                             onChange={e => this.setData({ to: e.target.value })}
                         /></td>
+                        <td className='td'>被转账用户的账户名称</td>
                     </tr>
-                    <tr>
-                        <td>quantity</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>quantity</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.quantity}
                             onChange={e => this.setData({ quantity: e.target.value })}
                         /></td>
+                        <td className='td'>转账金额 积分种类</td>
                     </tr>
-                    <tr>
-                        <td>Content</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>Content</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.memo}
                             onChange={e => this.setData({ memo: e.target.value })}
                         /></td>
+                        <td className='td'>备注</td>
                     </tr>
                 </tbody>
             </table>
             <br />
-            <button onClick={e => this.post()}>Issue</button>
+            <button className='button' onClick={e => this.post()}>Issue</button>
             {this.state.error && <div>
                 <br />
                 Error:
@@ -317,43 +325,43 @@ class ConsumeForm extends React.Component<{}, ConsumeFormState>{
 
     render() {
         return <div>
-            <table>
+            <table className='table'>
                 <tbody>
-                    <tr>
-                        <td>Private Key</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>Private Key</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.privateKey}
                             onChange={e => this.setState({ privateKey: e.target.value })}
                         /></td>
                     </tr>
-                    <tr>
-                        <td>From</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>From</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.from}
                             onChange={e => this.setData({ from: e.target.value })}
                         /></td>
                     </tr>
-                    <tr>
-                        <td>to</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>to</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.to}
                             onChange={e => this.setData({ to: e.target.value })}
                         /></td>
                     </tr>
-                    <tr>
-                        <td>quantity</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>quantity</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.quantity}
                             onChange={e => this.setData({ quantity: e.target.value })}
                         /></td>
                     </tr>
-                    <tr>
-                        <td>Content</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>Content</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.memo}
                             onChange={e => this.setData({ memo: e.target.value })}
@@ -362,7 +370,7 @@ class ConsumeForm extends React.Component<{}, ConsumeFormState>{
                 </tbody>
             </table>
             <br />
-            <button onClick={e => this.post()}>Consume</button>
+            <button className='button' onClick={e => this.post()}>Consume</button>
             {this.state.error && <div>
                 <br />
                 Error:
@@ -469,59 +477,59 @@ class ExchangeForm extends React.Component<{}, ExchangeFormState>{
 
     render() {
         return <div>
-            <table>
+            <table className='table'>
                 <tbody>
-                    <tr>
-                        <td>Private Key</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>Private Key</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.privateKey}
                             onChange={e => this.setState({ privateKey: e.target.value })}
                         /></td>
                     </tr>
-                    <tr>
-                        <td>From</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>From</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.from}
                             onChange={e => this.setData({ from: e.target.value })}
                         /></td>
                     </tr>
-                    <tr>
-                        <td>to</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>to</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.to}
                             onChange={e => this.setData({ to: e.target.value })}
                         /></td>
                     </tr>
-                    <tr>
-                        <td>quantity</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>quantity</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.quantity}
                             onChange={e => this.setData({ quantity: e.target.value })}
                         /></td>
                     </tr>
-                    <tr>
-                        <td>exchange</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>exchange</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.exchange}
                             onChange={e => this.setData({ exchange: e.target.value })}
                         /></td>
                     </tr>
-                    <tr>
-                        <td>exchanged</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>exchanged</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.exchanged}
                             onChange={e => this.setData({ exchanged: e.target.value })}
                         /></td>
                     </tr>
-                    <tr>
-                        <td>Content</td>
-                        <td><input
+                    <tr className='tr'>
+                        <td className='td'>Content</td>
+                        <td className='td'><input
                             style={{ width: 500 }}
                             value={this.state.data.memo}
                             onChange={e => this.setData({ memo: e.target.value })}
@@ -530,7 +538,7 @@ class ExchangeForm extends React.Component<{}, ExchangeFormState>{
                 </tbody>
             </table>
             <br />
-            <button onClick={e => this.post()}>Exchange</button>
+            <button className='button' onClick={e => this.post()}>Exchange</button>
             {this.state.error && <div>
                 <br />
                 Error:
@@ -583,10 +591,13 @@ ReactDOM.render(
           <TabPane tab="Create" key="1">
             <CreateForm />
           </TabPane>
-          <TabPane tab="Tab 2" key="2">
+          <TabPane tab="Issue" key="2">
             <IssueForm />
           </TabPane>
-          <TabPane tab="Tab 3" key="3">
+          <TabPane tab="Consume" key="3">
+            <ConsumeForm />
+          </TabPane>
+          <TabPane tab="Exchange" key="4">
             <ExchangeForm />
           </TabPane>
         </Tabs>,
