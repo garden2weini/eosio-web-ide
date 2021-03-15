@@ -5,7 +5,7 @@ import * as React from "react";
 import * as ReactDOM from "react-dom";
 import { Api, JsonRpc, RpcError } from 'eosjs';
 import { JsSignatureProvider } from 'eosjs/dist/eosjs-jssig';
-import { Tabs } from 'antd';
+import { Tabs } from "antd";
 
 const { TabPane } = Tabs;
 
@@ -227,7 +227,7 @@ class IssueForm extends React.Component<{}, IssueFormState> {
                             value={this.state.data.to}
                             onChange={e => this.setData({ to: e.target.value })}
                         /></td>
-                        <td className='td'>被转账用户的账户名称</td>
+                        <td className='td'>消费者账户名称</td>
                     </tr>
                     <tr className='tr'>
                         <td className='td'>quantity</td>
@@ -334,6 +334,7 @@ class ConsumeForm extends React.Component<{}, ConsumeFormState>{
                             value={this.state.privateKey}
                             onChange={e => this.setState({ privateKey: e.target.value })}
                         /></td>
+                        <td className='td'>消费者账户对应的私钥</td>
                     </tr>
                     <tr className='tr'>
                         <td className='td'>From</td>
@@ -342,6 +343,7 @@ class ConsumeForm extends React.Component<{}, ConsumeFormState>{
                             value={this.state.data.from}
                             onChange={e => this.setData({ from: e.target.value })}
                         /></td>
+                        <td className='td'>消费者账户名称</td>
                     </tr>
                     <tr className='tr'>
                         <td className='td'>to</td>
@@ -350,6 +352,7 @@ class ConsumeForm extends React.Component<{}, ConsumeFormState>{
                             value={this.state.data.to}
                             onChange={e => this.setData({ to: e.target.value })}
                         /></td>
+                        <td className='td'>商户账户名称</td>
                     </tr>
                     <tr className='tr'>
                         <td className='td'>quantity</td>
@@ -358,6 +361,7 @@ class ConsumeForm extends React.Component<{}, ConsumeFormState>{
                             value={this.state.data.quantity}
                             onChange={e => this.setData({ quantity: e.target.value })}
                         /></td>
+                        <td className='td'>消费金额 积分种类</td>
                     </tr>
                     <tr className='tr'>
                         <td className='td'>Content</td>
@@ -366,6 +370,7 @@ class ConsumeForm extends React.Component<{}, ConsumeFormState>{
                             value={this.state.data.memo}
                             onChange={e => this.setData({ memo: e.target.value })}
                         /></td>
+                        <td className='td'>备注</td>
                     </tr>
                 </tbody>
             </table>
@@ -486,6 +491,7 @@ class ExchangeForm extends React.Component<{}, ExchangeFormState>{
                             value={this.state.privateKey}
                             onChange={e => this.setState({ privateKey: e.target.value })}
                         /></td>
+                        <td className='td'>消费者账户对应的私钥</td>
                     </tr>
                     <tr className='tr'>
                         <td className='td'>From</td>
@@ -494,6 +500,7 @@ class ExchangeForm extends React.Component<{}, ExchangeFormState>{
                             value={this.state.data.from}
                             onChange={e => this.setData({ from: e.target.value })}
                         /></td>
+                        <td className='td'>消费者账户名称</td>
                     </tr>
                     <tr className='tr'>
                         <td className='td'>to</td>
@@ -502,6 +509,7 @@ class ExchangeForm extends React.Component<{}, ExchangeFormState>{
                             value={this.state.data.to}
                             onChange={e => this.setData({ to: e.target.value })}
                         /></td>
+                        <td className='td'>商家账户名称</td>
                     </tr>
                     <tr className='tr'>
                         <td className='td'>quantity</td>
@@ -510,6 +518,7 @@ class ExchangeForm extends React.Component<{}, ExchangeFormState>{
                             value={this.state.data.quantity}
                             onChange={e => this.setData({ quantity: e.target.value })}
                         /></td>
+                        <td className='td'>消费金额</td>
                     </tr>
                     <tr className='tr'>
                         <td className='td'>exchange</td>
@@ -518,6 +527,7 @@ class ExchangeForm extends React.Component<{}, ExchangeFormState>{
                             value={this.state.data.exchange}
                             onChange={e => this.setData({ exchange: e.target.value })}
                         /></td>
+                        <td className='td'>消费者交换积分种类</td>
                     </tr>
                     <tr className='tr'>
                         <td className='td'>exchanged</td>
@@ -526,6 +536,7 @@ class ExchangeForm extends React.Component<{}, ExchangeFormState>{
                             value={this.state.data.exchanged}
                             onChange={e => this.setData({ exchanged: e.target.value })}
                         /></td>
+                        <td className='td'>消费者被交换积分种类</td>
                     </tr>
                     <tr className='tr'>
                         <td className='td'>Content</td>
@@ -534,6 +545,7 @@ class ExchangeForm extends React.Component<{}, ExchangeFormState>{
                             value={this.state.data.memo}
                             onChange={e => this.setData({ memo: e.target.value })}
                         /></td>
+                        <td className='td'>备注</td>
                     </tr>
                 </tbody>
             </table>
@@ -588,17 +600,44 @@ class Messages extends React.Component<{}, { content: string }> {
 
 ReactDOM.render(
     <Tabs>
-          <TabPane tab="Create" key="1">
+          <TabPane tab="Home" key="1">
+            <h1>项目说明</h1>
+            <h2>项目背景</h2>
+            <div>积分体系存在于生活的各个角落，超市积分，城市居住积分等等。为了降低赚取用户的成本，提升用户活跃度，越来越多的企业也开始选用积分商城来提升用户活跃度。</div>
+            <div>EOS是一个免费的开源区块链软件协议，通过创建一个对开发者友好的底层区块链平台，支持多个应用同时运行，为DApp提供底层区块链支持。</div>
+            <div>而通用积分是指众多合作商家使用同一种积分对会员进行奖励。会员在积分合作商家消费时能够将获得的积分奖励进行合并累计，积分积累起来，到一定额度时可以兑换礼品、抵扣消费金额，也可以选择转为货币现金形式。</div>
+            <h2>目的及意义</h2>
+            <div>传统积分系统，因积分交易的限制多、额度小、使用频度低，成为了商家及客户的“鸡肋产品”。区块链的分布式、不可篡改地、可追溯的特性使得积分的跨平台交易得以实现，同时丰富的智能合约系统，使消费者行为数据可以更有效、明确地被发现、分析及使用，从而促使消费力进一步被释放，通过不断优化积分系统的构架和流程达成与商家诉求一致的动态匹配。因此，建立在全网身份认证服务、公共监管征信系统下的区块链积分系统，可以释放出积分交易的优势。</div>
+            <div>本项目旨在通过实现一个通用积分系统，学习如何对区块链数据处理、环境部署和应用开发，熟练掌握如何编写EOS智能合约，如何设计一个区块链应用，并使用EOS进行DApp开发。</div>
+            <h2>使用说明</h2>
+            <div>本网页为通用积分流转平台的各个接口提供使用说明</div>
+          </TabPane>
+          <TabPane tab="Create" key="2">
+            <h2>积分创建接口</h2>
+            <div>积分创建接口由商户调用，用于创建积分。</div>
+            <p></p>
             <CreateForm />
           </TabPane>
-          <TabPane tab="Issue" key="2">
+          <TabPane tab="Issue" key="3">
+            <h2>积分分发接口</h2>
+            <div>积分分发接口由商户调用，用于分发积分。</div>
+            <p></p>
             <IssueForm />
           </TabPane>
-          <TabPane tab="Consume" key="3">
+          <TabPane tab="Consume" key="4">
+            <h2>积分消费接口</h2>
+            <div>积分创建接口由商户或消费者调用，用于消费积分。</div>
+            <p></p>
             <ConsumeForm />
           </TabPane>
-          <TabPane tab="Exchange" key="4">
+          <TabPane tab="Exchange" key="5">
+            <h2>积分兑换接口</h2>
+            <div>积分兑换接口由消费者调用，用于积分之间的兑换。</div>
+            <p></p>
             <ExchangeForm />
+          </TabPane>
+          <TabPane tab="Message" key="6">
+              <Messages />
           </TabPane>
         </Tabs>,
     document.getElementById("example")
