@@ -43,7 +43,7 @@ input{
 }
 
 .ant-tabs-nav{
-    position:absolute; top:102px; left:8px; width:200px; height:100%; background-color:#CCCCCC;
+    position:absolute; top:105px; left:8px; width:200px; height:100%; background-color:#CCCCCC;
 }
 .ant-tabs{
     border:2px 2px;
@@ -61,11 +61,16 @@ input{
     border-radius: 8px;
 }
 
+.ant-tabs-tab-btn{
+    font-size:larger;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 .top{
     position: relative;
     background-color: #cccccf;
     height: 68px;
-    padding-top: 20px;
+    padding-bottom: 30px;
     line-height: 50px;
     overflow: hidden;
 }
